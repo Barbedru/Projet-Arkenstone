@@ -1,19 +1,22 @@
 package characters;
 
 public class Character {
-    private String type; //Dwarf or Wizard
+    private String type; //Dwarf or Wizard or Gobelin or Smaug
     private String name;
     private int attack;
     private int pv;
 
+
     //Constructeur
-    public Character(String type, String name, int healthLevel, int attackLevel) {
+    public Character(String type, String name,  int attack, int pv) {
         this.type = type;
         this.name = name;
         this.attack = attack;
         this.pv = pv;
 
     }
+
+
 
     //Getters
     public String getType(){
@@ -32,6 +35,9 @@ public class Character {
         return pv;
     }
 
+
+
+
     // Setters
     public void setType(String type) {
         this.type = type;
@@ -49,14 +55,14 @@ public class Character {
         this.pv = pv;
     }
 
+
+
+
     //tostring
 
     @Override
     public String toString(){
-        return "Character" + "type = " + type + " "
-                + " name = " + name + " "
-                + " attack = " + attack + " "
-                + " pv = " + pv + " ";
+        return "Character" + "type = " + type + " " + " name = " + name + " "  + " attack = " + attack + " "  + " pv = " + pv + " ";
 
     }
 }

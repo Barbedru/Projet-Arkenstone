@@ -5,7 +5,7 @@ public class DefensiveEquipment {
     private String name;
     private int defense;
 
-    public DefensiveEquipment(String type, int defense, String name) {
+    public DefensiveEquipment(String type, String name, int defense) {
         this.type = type;
         this.name = name;
         this.defense = defense;
@@ -36,4 +36,14 @@ public class DefensiveEquipment {
     public void setAttack(int attack){
         this.defense = attack;
     }
+
+
+    //tostring
+
+    @Override
+    public String toString(){
+        return "DefensiveEquipment" + "type = " + type + " " + " name = " + name + " "  + " defense = " + defense + " ";
+
+    }
+
 }

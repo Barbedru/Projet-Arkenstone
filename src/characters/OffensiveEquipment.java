@@ -5,11 +5,14 @@ public class OffensiveEquipment {
     private String name;
     private int attack;
 
-    public OffensiveEquipment(String type, int attackLevel, String name) {
+    public OffensiveEquipment(String type, String name, int attackLevel) {
         this.type = type;
         this.name = name;
         this.attack = attack;
     }
+
+
+
 
     //Getters
     public String getType(){
@@ -36,4 +39,14 @@ public class OffensiveEquipment {
     public void setAttack(int attack){
         this.attack = attack;
     }
+
+    //tostring
+
+    @Override
+    public String toString(){
+        return "OffensiveEquipment" + "type = " + type + " " + " name = " + name + " "  + " attack = " + attack + " ";
+
+    }
+
+
 }
