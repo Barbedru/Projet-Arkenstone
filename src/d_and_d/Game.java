@@ -6,103 +6,128 @@ import d_and_d.character.Wizard;
 
 import java.util.Scanner;
 
-
+/**
+ * Classe principale gérant le déroulement du jeu Donjons & Dragons.
+ * <p>
+ * Elle orchestre les interactions entre le menu, le plateau, le dé
+ * et le personnage du joueur, et contient la boucle de jeu principale.
+ * </p>
+ */
 public class Game {
 
+    /**
+     * Gère l'affichage et les entrées du menu principal.
+     */
     private Menu menu;
-    // Gère l'affichage et les entrées du menu principal.
 
+    /**
+     * Objet permettant de lancer un dé.
+     */
     private Dice dice;
-    // Objet permettant de lancer un dé.
 
+    /**
+     * Représente le plateau de jeu contenant les cases.
+     */
     private Board board;
-    // Représente le plateau de jeu.
 
+    /**
+     * Le personnage contrôlé par le joueur.
+     */
     private Character character;
-    // Le personnage contrôlé par le joueur.
 
+    /**
+     * Scanner utilisé pour lire les entrées clavier (pauses, saisies).
+     */
     private Scanner scanner;
-    // Scanner utilisé pour les pauses / entrées clavier.
 
-    public Game (Menu menu, Dice dice, Scanner scanner) {
-        // Constructeur : on injecte les dépendances
-        // (bonne pratique = injection de dépendances)
-
+    /**
+     * Construit une instance de {@code Game} en injectant les dépendances nécessaires.
+     *
+     * @param menu    le menu principal du jeu
+     * @param dice    l'objet dé utilisé pour les lancers aléatoires
+     * @param scanner le scanner pour la lecture des entrées clavier
+     */
+    public Game(Menu menu, Dice dice, Scanner scanner) {
         this.menu = menu;
-        this.dice= dice;
+        this.dice = dice;
         this.scanner = scanner;
     }
 
+    /**
+     * Lance et gère la boucle de jeu principale.
+     * <p>
+     * Tant que le joueur ne choisit pas "Quit" dans le menu, une nouvelle partie
+     * est initialisée. La boucle de jeu tourne jusqu'à ce que le joueur atteigne
+     * la dernière case (victoire).
+     * </p>
+     */
     public void startGame() {
-        // Méthode principale qui lance le jeu.
-
         while (!menu.mainMenu()) {
-            // Tant que l'utilisateur ne choisit pas "Quit"
-
             String type = menu.getType();
-            // Demande le type de personnage
-
             String name = menu.getName();
-            // Demande le nom
+            menu.displayCharacter(type, name);
 
             initGame(type, name);
-            // Initialise la partie
 
             while (!checkWin()) {
                 loop();
-                // Boucle principale du jeu
-                // Continue tant que le joueur n’a pas gagné
             }
 
             board.print();
-            // Affiche le plateau final
-
-            System.out.println("On a gagné !");
-            // Message de victoire
+            System.out.println("Found the Arkenstone !");
+            System.out.println("Your are the King under the mountain !");
         }
     }
 
+    /**
+     * Initialise une nouvelle partie en créant le plateau et le personnage.
+     * <p>
+     * Le personnage est instancié selon le type choisi ({@code "Dwarf"} ou {@code "Wizard"}),
+     * puis placé sur la case de départ (index 0) du plateau.
+     * </p>
+     *
+     * @param type le type de personnage choisi par le joueur ({@code "Dwarf"} ou {@code "Wizard"})
+     * @param name le nom du personnage choisi par le joueur
+     */
     public void initGame(String type, String name) {
-        // Initialise une nouvelle partie
-
         board = new Board(64);
-        // Création d’un plateau de 64 cases
 
-        if(type.equals("Warrior")) {
-            character = new Dwarf(name);
-            // Si type = Warrior → on crée un Dwarf
+        if (type.equals("Dwarf")) {
+            character = new Dwarf(name, 5, 10);
+        } else if (type.equals("Wizard")) {
+            character = new Wizard(name, 8, 6);
         } else {
-            character = new Wizard(name);
-            // Sinon → Wizard par défaut
+            System.out.println("Yippee Ki-Yay");
         }
 
         board.setTile(0, character);
-        // Place le personnage sur la case 0
     }
 
+    /**
+     * Exécute un tour de jeu.
+     * <p>
+     * Affiche le plateau, lance un dé à 6 faces, déplace le personnage
+     * du nombre de cases correspondant, puis attend une saisie clavier avant
+     * de passer au tour suivant.
+     * </p>
+     */
     public void loop() {
-        // Un tour de jeu
-
         board.print();
-        // Affiche le plateau
-
         int roll = dice.roll(6);
-        // Lance un dé à 6 faces
-
         board.moveCharacter(roll);
-        // Déplace le personnage
-
         this.scanner.nextLine();
-        // Pause : attend que l’utilisateur appuie sur Entrée
     }
 
+    /**
+     * Vérifie si le joueur a gagné la partie.
+     * <p>
+     * La condition de victoire est atteinte lorsque le personnage
+     * se trouve sur la dernière case du plateau (index 63).
+     * </p>
+     *
+     * @return {@code true} si le personnage est sur la case 63, {@code false} sinon
+     */
     public boolean checkWin() {
-        // Vérifie si le joueur est arrivé à la dernière case
-
         return board.getTile(63) == character;
-        // Si la case 63 contient le personnage → victoire
     }
 }
-
-
-

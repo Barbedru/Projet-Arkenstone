@@ -1,70 +1,92 @@
 package d_and_d;
 
+/**
+ * Représente le plateau de jeu sous forme d'un tableau linéaire de cases.
+ * <p>
+ * Chaque case peut contenir un objet (personnage, ennemi, etc.) ou être
+ * vide ({@code null}). Le plateau gère également le déplacement du personnage
+ * et l'affichage de son état dans la console.
+ * </p>
+ */
 public class Board {
 
+    /**
+     * Tableau représentant les cases du plateau.
+     * Une case à {@code null} est considérée comme vide.
+     */
     private Object[] board;
-    // Tableau représentant le plateau de jeu.
-    // Chaque case peut contenir un objet (personnage, ennemi, etc.)
-    // ou être null (case vide).
 
+    /**
+     * Position actuelle du personnage sur le plateau (index dans le tableau).
+     */
     private int characterPosition;
-    // Stocke la position actuelle du personnage sur le plateau.
 
+    /**
+     * Construit un plateau de jeu de la taille donnée.
+     * Toutes les cases sont initialisées à {@code null} (vides) par défaut.
+     *
+     * @param size le nombre de cases du plateau
+     */
     public Board(int size) {
         board = new Object[size];
-        // Constructeur : crée un plateau de la taille donnée.
-        // Toutes les cases sont initialisées à null par défaut.
     }
 
+    /**
+     * Retourne l'objet présent à la position donnée.
+     *
+     * @param pos l'index de la case à consulter
+     * @return l'objet contenu dans la case, ou {@code null} si elle est vide
+     */
     public Object getTile(int pos) {
-        // Retourne l’objet présent à la position donnée.
         return board[pos];
     }
 
+    /**
+     * Place un objet dans la case à la position donnée.
+     *
+     * @param pos  l'index de la case cible
+     * @param tile l'objet à placer dans la case
+     */
     public void setTile(int pos, Object tile) {
-        // Place un objet dans une case donnée.
         board[pos] = tile;
     }
 
+    /**
+     * Déplace le personnage d'un certain nombre de cases vers l'avant.
+     * <p>
+     * Si le déplacement dépasse la dernière case, le personnage est
+     * repositionné sur celle-ci afin de ne pas sortir du plateau.
+     * </p>
+     *
+     * @param move le nombre de cases à avancer
+     */
     public void moveCharacter(int move) {
-        // Déplace le personnage d’un certain nombre de cases.
-
         Object character = getTile(characterPosition);
-        // Récupère le personnage à sa position actuelle.
-
         setTile(characterPosition, null);
-        // Vide l’ancienne case (le personnage quitte la case).
 
         characterPosition += move;
-        // Met à jour la position en ajoutant le déplacement.
 
         if (characterPosition >= board.length) {
             characterPosition = board.length - 1;
         }
-        // Empêche le personnage de sortir du plateau.
-        // S’il dépasse la taille, on le place sur la dernière case.
 
         setTile(characterPosition, character);
-        // Place le personnage sur sa nouvelle case.
     }
 
+    /**
+     * Affiche le plateau dans la console.
+     * <p>
+     * Une case vide est représentée par {@code "."}, et une case occupée
+     * affiche le résultat de {@code toString()} de l'objet qu'elle contient.
+     * </p>
+     */
     public void print() {
-        // Affiche le plateau dans la console.
-
         for (int i = 0; i < board.length; i++) {
             if (board[i] == null) {
                 System.out.print(".");
-                // "." représente une case vide.
             } else {
                 System.out.print(board[i]);
-                // Affiche l’objet contenu dans la case.
-                // (utilise automatiquement toString())
             }
         }
     }
 }
-
-
-
-
-

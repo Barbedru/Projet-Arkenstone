@@ -1,15 +1,29 @@
 package d_and_d.character;
 
-// La classe Wizard hérite de la classe Character
+/**
+ * Représente un personnage de type Wizard.
+ */
 public class Wizard extends Character {
-    // Constructeur de la classe Wizard
-    // Il prend un paramètre : le nom du personnage
-    public Wizard(String name) {
-        // Appel du constructeur de la classe mère (Character)
-        // On lui passe :
-        // - le nom du personnage
-        // - le type "Wizard"
-        super(name, "Wizard");
+
+    /**
+     * Construit un personnage de type Wizard avec son nom et ses caractéristiques.
+     * Le type est automatiquement défini à {@code "Wizard"}.
+     *
+     * @param name   le nom du personnage
+     * @param attack la valeur d'attaque du Wizard
+     * @param hp     les points de vie du Wizard
+     */
+    public Wizard(String name, int attack, int hp) {
+        super(name, "Wizard", attack, hp);
+    }
+
+    /**
+     * Retourne une représentation textuelle du Wizard.
+     *
+     * @return une chaîne identifiant le personnage comme un Wizard
+     */
+    @Override
+    public String toString() {
+        return "Wizard{}";
     }
 }
-
