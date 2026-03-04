@@ -1,5 +1,6 @@
 package d_and_d;
 
+import d_and_d.board.Board;
 import d_and_d.character.Dwarf;
 import d_and_d.character.Character;
 import d_and_d.character.Wizard;
@@ -28,7 +29,7 @@ public class Game {
     /**
      * Représente le plateau de jeu contenant les cases.
      */
-    private Board board;
+    private Board Board;
 
     /**
      * Le personnage contrôlé par le joueur.
@@ -62,8 +63,8 @@ public class Game {
      * </p>
      */
     public void startGame() {
-        while (!menu.mainMenu()) {
-            String type = menu.getType();
+        while (!menu.displayMenu()) {
+            String type = menu.getCharacterChoice();
             String name = menu.getName();
             menu.displayCharacter(type, name);
 
@@ -73,8 +74,8 @@ public class Game {
                 loop();
             }
 
-            board.print();
-            System.out.println("Found the Arkenstone !");
+            Board.print();
+            System.out.println("Your found the Arkenstone !");
             System.out.println("Your are the King under the mountain !");
         }
     }
@@ -90,7 +91,7 @@ public class Game {
      * @param name le nom du personnage choisi par le joueur
      */
     public void initGame(String type, String name) {
-        board = new Board(64);
+        Board = new Board(64);
 
         if (type.equals("Dwarf")) {
             character = new Dwarf(name, 5, 10);
@@ -100,7 +101,7 @@ public class Game {
             System.out.println("Yippee Ki-Yay");
         }
 
-        board.setTile(0, character);
+        Board.setTile(0, character);
     }
 
     /**
@@ -112,9 +113,9 @@ public class Game {
      * </p>
      */
     public void loop() {
-        board.print();
-        int roll = dice.roll(6);
-        board.moveCharacter(roll);
+        Board.print();
+        int roll = dice.roll(1);
+        Board.moveCharacter(roll);
         this.scanner.nextLine();
     }
 
@@ -128,6 +129,6 @@ public class Game {
      * @return {@code true} si le personnage est sur la case 63, {@code false} sinon
      */
     public boolean checkWin() {
-        return board.getTile(63) == character;
+        return Board.getTile(63) == character;
     }
 }

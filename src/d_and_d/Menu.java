@@ -39,7 +39,7 @@ public class Menu {
      *
      * @return {@code true} si le joueur souhaite quitter, {@code false} sinon
      */
-    public boolean mainMenu() {
+    public boolean displayMenu() {
         System.out.println("""        
                 MAIN MENU
                 ---------
@@ -56,12 +56,12 @@ public class Menu {
                 return false;
             case 2:
                 System.out.println("WIP");
-                return mainMenu();
+                return displayMenu();
             case 3:
                 return true;
             default:
                 System.out.println("Yippee Ki-Yay");
-                return mainMenu();
+                return displayMenu();
         }
     }
 
@@ -70,7 +70,7 @@ public class Menu {
      *
      * @return le type de personnage saisi ({@code "Dwarf"} ou {@code "Wizard"})
      */
-    public String getType() {
+    public String getCharacterChoice() {
         System.out.println("Make choice between Dwarf or Wizard");
         return scanner.nextLine();
     }
@@ -88,7 +88,16 @@ public class Menu {
 
     public void displayCharacter(String type, String name) {
 
+        //printf → Permet d’afficher du texte formaté.
+//        %n → Retour à la ligne (portable entre systèmes).
+//        %s → Placeholder pour une chaîne de caractères.
+//        the → Mot fixe.
+//        %s → Deuxième chaîne.
+//        ! → Fin de phrase.
         System.out.printf("%n>>> %s the %s is ready for adventure !%n", name, type);
+//        Premier %s → name
+//        Deuxième %s → type
+
     }
 
 

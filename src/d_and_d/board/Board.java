@@ -1,4 +1,4 @@
-package d_and_d;
+package d_and_d.board;
 
 /**
  * Représente le plateau de jeu sous forme d'un tableau linéaire de cases.
@@ -19,7 +19,7 @@ public class Board {
     /**
      * Position actuelle du personnage sur le plateau (index dans le tableau).
      */
-    private int characterPosition;
+    private int playerPosition;
 
     /**
      * Construit un plateau de jeu de la taille donnée.
@@ -61,16 +61,16 @@ public class Board {
      * @param move le nombre de cases à avancer
      */
     public void moveCharacter(int move) {
-        Object character = getTile(characterPosition);
-        setTile(characterPosition, null);
+        Object character = getTile(playerPosition);
+        setTile(playerPosition, null);
 
-        characterPosition += move;
+        playerPosition += move;
 
-        if (characterPosition >= board.length) {
-            characterPosition = board.length - 1;
+        if (playerPosition >= board.length) {
+            playerPosition = board.length - 1;
         }
 
-        setTile(characterPosition, character);
+        setTile(playerPosition, character);
     }
 
     /**
@@ -88,5 +88,8 @@ public class Board {
                 System.out.print(board[i]);
             }
         }
+    }
+
+    public abstract static class Case {
     }
 }

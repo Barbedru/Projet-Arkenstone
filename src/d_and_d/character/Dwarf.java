@@ -21,6 +21,7 @@ public class Dwarf extends Character {
         super(name, "Dwarf", attack, hp);
     }
 
+
     /**
      * Retourne une représentation textuelle du Nain.
      *
@@ -28,6 +29,7 @@ public class Dwarf extends Character {
      */
     @Override
     public String toString() {
-        return "Dwarf{}";
+        return "Dwarf{} " + super.toString();
     }
+
 }

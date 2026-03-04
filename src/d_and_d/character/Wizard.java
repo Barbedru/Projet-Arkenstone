@@ -14,6 +14,7 @@ public class Wizard extends Character {
      * @param hp     les points de vie du Wizard
      */
     public Wizard(String name, int attack, int hp) {
+
         super(name, "Wizard", attack, hp);
     }
 
@@ -24,6 +25,6 @@ public class Wizard extends Character {
      */
     @Override
     public String toString() {
-        return "Wizard{}";
+        return "Wizard{}" + super.toString();
     }
 }
