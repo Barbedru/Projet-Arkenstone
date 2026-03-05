@@ -3,7 +3,7 @@ package d_and_d.character;
 public class Smaug extends Character {
 
     public Smaug(String name, int attack, int hp) {
-        super(name,"Smaug", attack, hp);
+        super(name,"Smaug", 4, 15, null);
     }
 
     @Override

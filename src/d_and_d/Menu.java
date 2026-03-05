@@ -1,45 +1,22 @@
 package d_and_d;
 
+import d_and_d.equipment.OffensiveEquipment;
+
+import java.util.Calendar;
 import java.util.Scanner;
 
-/**
- * Classe gérant l'affichage des menus et les interactions avec le joueur.
- * <p>
- * Elle centralise toutes les saisies utilisateur nécessaires au démarrage
- * et à la configuration d'une partie.
- * </p>
- */
-public class Menu {
 
-    /**
-     * Scanner utilisé pour lire les entrées clavier de l'utilisateur.
-     */
+public class Menu {
     private Scanner scanner;
 
-    /**
-     * Construit un {@code Menu} en injectant le scanner de lecture.
-     *
-     * @param scanner le scanner permettant de lire les entrées utilisateur
-     */
+
     public Menu(Scanner scanner) {
 
         this.scanner = scanner;
     }
 
-    /**
-     * Affiche le menu principal et traite le choix de l'utilisateur.
-     * <p>
-     * Les options disponibles sont :
-     * <ul>
-     *   <li>1 — Nouvelle partie : retourne {@code false} pour continuer</li>
-     *   <li>2 — Éditer le personnage (non implémenté) : réaffiche le menu</li>
-     *   <li>3 — Quitter : retourne {@code true} pour stopper le jeu</li>
-     * </ul>
-     * Toute saisie invalide réaffiche le menu.
-     * </p>
-     *
-     * @return {@code true} si le joueur souhaite quitter, {@code false} sinon
-     */
+
+
     public boolean displayMenu() {
         System.out.println("""        
                 MAIN MENU
@@ -50,7 +27,7 @@ public class Menu {
                 """);
 
         int input = scanner.nextInt();
-        scanner.nextLine(); // Vide le buffer après nextInt()
+       scanner.nextLine(); // Vide le buffer après nextInt()
 
         switch (input) {
             case 1:
@@ -66,37 +43,31 @@ public class Menu {
         }
     }
 
-    /**
-     * Demande au joueur de choisir un type de personnage.
-     *
-     * @return le type de personnage saisi ({@code "Dwarf"} ou {@code "Wizard"})
-     */
+
     public String getCharacterChoice() {
         System.out.println("Make choice between Dwarf or Wizard");
         return scanner.nextLine();
     }
 
-    /**
-     * Demande au joueur de saisir un nom pour son personnage.
-     *
-     * @return le nom du personnage saisi par le joueur
-     */
+
     public String getName() {
         System.out.println("Name it");
         return scanner.nextLine();
     }
 
 
-    public void displayCharacter(String type, String name) {
+
+    public void displayCharacter(String type, String name, int attack, int hp) {
 
         //printf → Permet d’afficher du texte formaté.
 //        %n → Retour à la ligne (portable entre systèmes).
 //        %s → Placeholder pour une chaîne de caractères.
         System.out.printf("%n>>> %s the %s is ready for adventure !%n", name, type);
+        System.out.println(name + " => type='" + type + "', attack=" + attack + ", hp=" + hp );
+    }
 //        Premier %s → name
 //        Deuxième %s → type
 
     }
 
 
-}

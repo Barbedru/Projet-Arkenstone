@@ -15,7 +15,7 @@ public class Game {
 
     private Dice dice;
 
-    private Board Board;
+    private Board board;
 
     private Character character;
 
@@ -30,22 +30,31 @@ public class Game {
         this.scanner = scanner;
     }
 
+    public void loop() {
+        board.print();
+        int roll = dice.roll(1);
+        board.moveCharacter(roll, character);
+        this.scanner.nextLine();
+    }
 
 
 
     public void startGame() {
         while (!menu.displayMenu()) {
+
             String type = menu.getCharacterChoice();
             String name = menu.getName();
-            menu.displayCharacter(type, name);
 
             initGame(type, name);
+
+            menu.displayCharacter(type, name, character.getAttack(), character.getHp());
+
 
             while (!checkWin()) {
                 loop();
             }
 
-            Board.print();
+            board.print();
             System.out.println("Your found the Arkenstone !");
             System.out.println("Your are the King under the mountain !");
         }
@@ -55,7 +64,7 @@ public class Game {
 
 
     public void initGame(String type, String name) {
-        Board = new Board();
+
 
         if (type.equals("Dwarf")) {
             character = new Dwarf(name, 5, 10);
@@ -63,19 +72,16 @@ public class Game {
             character = new Wizard(name, 8, 6);
         }
 
+        //Création plateau
+        board = new Board();
+
     }
 
 
-    public void loop() {
-        Board.print();
-        int roll = dice.roll(1);
-        Board.moveCharacter(roll);
-        this.scanner.nextLine();
-    }
 
 
 
     public boolean checkWin() {
-        return Board.getPlayerPosition() == 63;
+        return board.getPlayerPosition() == 63;
     }
 }
