@@ -22,6 +22,7 @@ public class Menu {
      * @param scanner le scanner permettant de lire les entrées utilisateur
      */
     public Menu(Scanner scanner) {
+
         this.scanner = scanner;
     }
 

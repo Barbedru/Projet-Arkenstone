@@ -1,95 +1,138 @@
 package d_and_d.board;
 
-/**
- * Représente le plateau de jeu sous forme d'un tableau linéaire de cases.
- * <p>
- * Chaque case peut contenir un objet (personnage, ennemi, etc.) ou être
- * vide ({@code null}). Le plateau gère également le déplacement du personnage
- * et l'affichage de son état dans la console.
- * </p>
- */
+import java.util.ArrayList;
+
 public class Board {
 
-    /**
-     * Tableau représentant les cases du plateau.
-     * Une case à {@code null} est considérée comme vide.
-     */
-    private Object[] board;
-
-    /**
-     * Position actuelle du personnage sur le plateau (index dans le tableau).
-     */
+    private ArrayList<Cell> board;
     private int playerPosition;
 
-    /**
-     * Construit un plateau de jeu de la taille donnée.
-     * Toutes les cases sont initialisées à {@code null} (vides) par défaut.
-     *
-     * @param size le nombre de cases du plateau
-     */
-    public Board(int size) {
-        board = new Object[size];
+    public Board() {
+        board = new ArrayList<>();
+        playerPosition = 0;
+
+
+        board.add(new EmptyCell(0));
+        board.add(new EnemyCell(1));
+        board.add(new WeaponCell(2));
+        board.add(new PotionCell(3));
+
+    board.add(new EmptyCell(4));
+    board.add(new EmptyCell(5));
+    board.add(new EmptyCell(6));
+    board.add(new EmptyCell(7));
+
+    board.add(new EmptyCell(8));
+    board.add(new EmptyCell(9));
+    board.add(new EmptyCell(10));
+    board.add(new EmptyCell(11));
+    board.add(new EmptyCell(12));
+    board.add(new EmptyCell(13));
+    board.add(new EmptyCell(14));
+    board.add(new EmptyCell(15));
+
+    board.add(new EmptyCell(16));
+    board.add(new EmptyCell(17));
+    board.add(new EmptyCell(18));
+    board.add(new EmptyCell(19));
+    board.add(new EmptyCell(20));
+    board.add(new EmptyCell(21));
+    board.add(new EmptyCell(22));
+    board.add(new EmptyCell(23));
+
+    board.add(new EmptyCell(24));
+    board.add(new EmptyCell(25));
+    board.add(new EmptyCell(26));
+    board.add(new EmptyCell(27));
+    board.add(new EmptyCell(28));
+    board.add(new EmptyCell(29));
+    board.add(new EmptyCell(30));
+    board.add(new EmptyCell(31));
+
+    board.add(new EmptyCell(32));
+    board.add(new EmptyCell(33));
+    board.add(new EmptyCell(34));
+    board.add(new EmptyCell(35));
+    board.add(new EmptyCell(36));
+    board.add(new EmptyCell(37));
+    board.add(new EmptyCell(38));
+    board.add(new EmptyCell(39));
+
+    board.add(new EmptyCell(40));
+    board.add(new EmptyCell(41));
+    board.add(new EmptyCell(42));
+    board.add(new EmptyCell(43));
+    board.add(new EmptyCell(44));
+    board.add(new EmptyCell(45));
+    board.add(new EmptyCell(46));
+    board.add(new EmptyCell(47));
+
+    board.add(new EmptyCell(48));
+    board.add(new EmptyCell(49));
+    board.add(new EmptyCell(50));
+    board.add(new EmptyCell(51));
+    board.add(new EmptyCell(52));
+    board.add(new EmptyCell(53));
+    board.add(new EmptyCell(54));
+    board.add(new EmptyCell(55));
+
+    board.add(new EmptyCell(56));
+    board.add(new EmptyCell(57));
+    board.add(new EmptyCell(58));
+    board.add(new EmptyCell(59));
+    board.add(new EmptyCell(60));
+    board.add(new EmptyCell(61));
+    board.add(new EmptyCell(62));
+    board.add(new EmptyCell(63));
+
     }
 
-    /**
-     * Retourne l'objet présent à la position donnée.
-     *
-     * @param pos l'index de la case à consulter
-     * @return l'objet contenu dans la case, ou {@code null} si elle est vide
-     */
-    public Object getTile(int pos) {
-        return board[pos];
-    }
+        public Cell getTile(int pos) {
+            return board.get(pos);
+        }
 
-    /**
-     * Place un objet dans la case à la position donnée.
-     *
-     * @param pos  l'index de la case cible
-     * @param tile l'objet à placer dans la case
-     */
-    public void setTile(int pos, Object tile) {
-        board[pos] = tile;
-    }
+        public void setTile(int pos, Cell tile) {
+            board.set(pos, tile);
+        }
 
-    /**
-     * Déplace le personnage d'un certain nombre de cases vers l'avant.
-     * <p>
-     * Si le déplacement dépasse la dernière case, le personnage est
-     * repositionné sur celle-ci afin de ne pas sortir du plateau.
-     * </p>
-     *
-     * @param move le nombre de cases à avancer
-     */
     public void moveCharacter(int move) {
-        Object character = getTile(playerPosition);
-        setTile(playerPosition, null);
 
         playerPosition += move;
 
-        if (playerPosition >= board.length) {
-            playerPosition = board.length - 1;
+        if (playerPosition >= board.size()) {
+            playerPosition = board.size() - 1;
         }
 
-        setTile(playerPosition, character);
-    }
+        Cell currentCell = board.get(playerPosition);
 
-    /**
-     * Affiche le plateau dans la console.
-     * <p>
-     * Une case vide est représentée par {@code "."}, et une case occupée
-     * affiche le résultat de {@code toString()} de l'objet qu'elle contient.
-     * </p>
-     */
-    public void print() {
-        for (int i = 0; i < board.length; i++) {
-            if (board[i] == null) {
-                System.out.print(".");
-            } else {
-                System.out.print(board[i]);
+        //instanceof permet de tester le type réel de la case sur laquelle le joueur arrive, et d'agir en conséquence.
+        if (currentCell instanceof EmptyCell) {
+            System.out.println("Cell : " + playerPosition + " " + "There's nothing here...");
+        } else if (currentCell instanceof EnemyCell) {
+            System.out.println("Cell : " + playerPosition + " " + "BASTONNNN !");
+        } else if (currentCell instanceof WeaponCell) {
+            System.out.println("Cell : " + playerPosition + " " + "A Weapon here !");
+        } else if (currentCell instanceof PotionCell) {
+            System.out.println("Cell : " + playerPosition + " " + "A Potion here !");
+        }
+
+
+        }
+
+        public int getPlayerPosition() {
+            return playerPosition;
+        }
+
+        public void print() {
+            for (int i = 0; i < board.size(); i++) {
+                if (i == playerPosition) {
+                    System.out.print("P"); // affiche le joueur
+                } else {
+                    System.out.print(".");
+                }
             }
-        }
-    }
+            System.out.println();
+}
 
-    public abstract static class Case {
-    }
+
 }
