@@ -8,6 +8,7 @@ public class Smaug extends Character {
 
     @Override
     public String toString() {
+
         return "Smaug" + super.toString();
     }
 }

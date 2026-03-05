@@ -92,9 +92,6 @@ public class Menu {
         //printf → Permet d’afficher du texte formaté.
 //        %n → Retour à la ligne (portable entre systèmes).
 //        %s → Placeholder pour une chaîne de caractères.
-//        the → Mot fixe.
-//        %s → Deuxième chaîne.
-//        ! → Fin de phrase.
         System.out.printf("%n>>> %s the %s is ready for adventure !%n", name, type);
 //        Premier %s → name
 //        Deuxième %s → type

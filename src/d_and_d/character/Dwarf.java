@@ -18,6 +18,7 @@ public class Dwarf extends Character {
      * @param hp     les points de vie du Nain
      */
     public Dwarf(String name, int attack, int hp) {
+
         super(name, "Dwarf", attack, hp);
     }
 

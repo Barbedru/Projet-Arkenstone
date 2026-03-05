@@ -6,15 +6,12 @@ public abstract class Cell {
 
     private int position;
 
-    public Cell(int position) {
+
+
+    public Cell(int position)
+    {
         this.position = position;
     }
-
-    public int getPosition() {
-        return position;
-    }
-
-
 
 
     @Override
