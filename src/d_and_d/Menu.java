@@ -27,7 +27,7 @@ public class Menu {
                 """);
 
         int input = scanner.nextInt();
-       scanner.nextLine(); // Vide le buffer après nextInt()
+       scanner.nextLine();
 
         switch (input) {
             case 1:
@@ -45,7 +45,11 @@ public class Menu {
 
 
     public String getCharacterChoice() {
-        System.out.println("Make choice between Dwarf or Wizard");
+        System.out.println("""
+                Make choice between : 
+                Dwarf \uD83C\uDF7A  
+                Wizard \uD83E\uDDD9\u200D♂\uFE0F
+                """);
         return scanner.nextLine();
     }
 
@@ -63,10 +67,11 @@ public class Menu {
 //        %n → Retour à la ligne (portable entre systèmes).
 //        %s → Placeholder pour une chaîne de caractères.
         System.out.printf("%n>>> %s the %s is ready for adventure !%n", name, type);
-        System.out.println(name + " => type='" + type + "', attack=" + attack + ", hp=" + hp );
+        //Premier %s → name
+       //Deuxième %s → type
+        System.out.println(name + " => a " + type + " with attack : " + attack + ", and hp : " + hp );
     }
-//        Premier %s → name
-//        Deuxième %s → type
+
 
     }
 

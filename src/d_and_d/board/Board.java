@@ -113,7 +113,7 @@ public class Board {
     public void print() {
         for (int i = -1; i < board.size(); i++) {
             if (i == playerPosition) {
-                System.out.print("P"); // affiche le joueur
+                System.out.print("\uD83C\uDF7A"); // affiche le joueur
             } else {
                 System.out.print(".");// affiche les cases
             }

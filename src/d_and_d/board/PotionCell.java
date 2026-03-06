@@ -10,8 +10,9 @@ public class PotionCell extends Cell {
 
     @Override
     public void action(Character character) {
-        System.out.println(character.getName());
-        System.out.println("Cell " + position + " - A potion here!");
+
+        System.out.println("Cell " + position + " There's are something here ");
+        System.out.println(character.getName() + " found a potion ! ");
 
     }
 }
