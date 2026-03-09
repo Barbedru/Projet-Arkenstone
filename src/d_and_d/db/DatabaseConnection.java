@@ -39,13 +39,14 @@ public class DatabaseConnection {
                 String defensiveEquip    = rs.getString("DefensiveEquipment");
 
                 System.out.println("-----------------------------");
-                System.out.println("ID       : " + id);
-                System.out.println("Type     : " + type);
-                System.out.println("Name      : " + name);
-                System.out.println("Hp       : " + lifePoints);
-                System.out.println("Strength    : " + strength);
-                System.out.println("Weapon  : " + offensiveEquip);
-                System.out.println("Shield  : " + defensiveEquip);
+                System.out.println(id + " " +
+                                   type + " " +
+                                    name + " " +
+                                    lifePoints + "❤️" + " " +
+                                    strength + "💪🏼" + " " +
+                                    offensiveEquip +
+                                    defensiveEquip );
+
             }
 
             System.out.println("=============================");
