@@ -73,7 +73,7 @@ public abstract class Character {
     @Override
     public String toString() {
 
-        String equipment = offensiveEquipment == null ? "none" : " iron fist ";
+        String equipment = offensiveEquipment == null ? "none" : " ... ";
 
         return "Character{" +
                 "name='" + name + '\'' +

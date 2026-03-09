@@ -1,8 +1,5 @@
 package d_and_d;
 
-import d_and_d.equipment.OffensiveEquipment;
-
-import java.util.Calendar;
 import java.util.Scanner;
 
 
@@ -17,12 +14,12 @@ public class Menu {
 
 
 
-    public boolean displayMenu() {
+    public boolean displayMenu(Game game) {
         System.out.println("""        
                 MAIN MENU
                 ---------
                 1 - New Game
-                2 - Edit character
+                2 - Edit Hero
                 3 - Quit Game
                 """);
 
@@ -33,13 +30,12 @@ public class Menu {
             case 1:
                 return false;
             case 2:
-                System.out.println("WIP");
-                return displayMenu();
+                game.editCharacter();  // ← on appelle la méthode de Game
+                return displayMenu(game);
             case 3:
                 return true;
             default:
-                System.out.println("Yippee Ki-Yay");
-                return displayMenu();
+                return displayMenu(game);
         }
     }
 
@@ -57,6 +53,14 @@ public class Menu {
     public String getName() {
         System.out.println("Name it");
         return scanner.nextLine();
+    }
+
+
+    public int getHeroId() {
+        System.out.println("Enter the ID of the hero to edit :");
+        int id = scanner.nextInt();
+        scanner.nextLine();
+        return id;
     }
 
 

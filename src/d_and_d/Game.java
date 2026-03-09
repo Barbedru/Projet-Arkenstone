@@ -4,6 +4,8 @@ import d_and_d.board.Board;
 import d_and_d.character.Character;
 import d_and_d.character.heros.Dwarf;
 import d_and_d.character.heros.Wizard;
+import d_and_d.db.DatabaseConnection;
+
 import java.util.Scanner;
 
 
@@ -14,6 +16,7 @@ public class Game {
     private Board board;
     private Character character;
     private Scanner scanner;
+    private DatabaseConnection db;
 
 
 
@@ -22,6 +25,7 @@ public class Game {
         this.menu = menu;
         this.dice = dice;
         this.scanner = scanner;
+        this.db = new DatabaseConnection();
     }
 
     public void loop() {
@@ -34,12 +38,14 @@ public class Game {
 
 
     public void startGame() {
-        while (!menu.displayMenu()) {
+        while (!menu.displayMenu(this)) {
 
             String type = menu.getCharacterChoice();
             String name = menu.getName();
 
             initGame(type, name);
+            db.createHero(character);
+
 
             menu.displayCharacter(type, name, character.getAttack(), character.getHp());
 
@@ -48,7 +54,6 @@ public class Game {
                 loop();
             }
 
-            board.print();
             System.out.println("Your found the Arkenstone !");
             System.out.println("Your are the King under the mountain !");
         }
@@ -71,7 +76,19 @@ public class Game {
 
     }
 
+    public void fight(){
 
+    }
+
+    public void editCharacter() {
+        db.getHeroes();
+        int id = menu.getHeroId();
+        String type = menu.getCharacterChoice();
+        String name = menu.getName();
+        initGame(type, name);
+        db.editHero(id, character);
+
+    }
 
 
 

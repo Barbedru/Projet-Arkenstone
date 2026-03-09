@@ -1,10 +1,8 @@
 package d_and_d.db;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import d_and_d.character.Character;
+import java.sql.*;
+import java.sql.PreparedStatement;
 
 
 public class DatabaseConnection {
@@ -16,18 +14,20 @@ public class DatabaseConnection {
 
 
     // Méthode qui crée et retourne une connexion
-    private Connection connect() throws SQLException {
+    public Connection connect() throws SQLException {
         return DriverManager.getConnection(URL, USER, PASSWORD);
     }
 
-    public void getHeroes() {
-        String query = "SELECT * FROM Character";
+    // RÉCUPÈRE LA LISTE DES HÉROS DE LA BDD
 
-        try (Connection conn = connect();
-             Statement stmt = conn.createStatement();
+    public void getHeroes() {
+        String query = "SELECT * FROM Heros";
+
+        try (Connection connection = connect();
+             Statement stmt = connection.createStatement();
              ResultSet rs = stmt.executeQuery(query)) {
 
-            System.out.println("=== Liste des personnages ===");
+            System.out.println("=== HEROES ===");
 
             while (rs.next()) {
                 int id                   = rs.getInt("id");
@@ -41,18 +41,69 @@ public class DatabaseConnection {
                 System.out.println("-----------------------------");
                 System.out.println("ID       : " + id);
                 System.out.println("Type     : " + type);
-                System.out.println("Nom      : " + name);
-                System.out.println("PV       : " + lifePoints);
-                System.out.println("Force    : " + strength);
-                System.out.println("Attaque  : " + offensiveEquip);
-                System.out.println("Défense  : " + defensiveEquip);
+                System.out.println("Name      : " + name);
+                System.out.println("Hp       : " + lifePoints);
+                System.out.println("Strength    : " + strength);
+                System.out.println("Weapon  : " + offensiveEquip);
+                System.out.println("Shield  : " + defensiveEquip);
             }
 
             System.out.println("=============================");
 
         } catch (SQLException e) {
-            System.err.println("Erreur : " + e.getMessage());
+            System.err.println("Error : " + e.getMessage());
         }
+    }
+
+    //SAUVEGARDE LE HERO CRÉÉ PAR LE JOUEUR DANS LA BDD
+
+    public void createHero(Character character) {
+        String query = "INSERT INTO Heros (Type, Name, LifePoints, Strength, OffensiveEquipment) VALUES (?, ?, ?, ?, ?)";
+
+        try (Connection connection = connect()){
+            PreparedStatement pstmt = connection.prepareStatement(query);
+
+            pstmt.setString(1, character.getType());
+            pstmt.setString(2, character.getName());
+            pstmt.setInt(3, character.getHp());
+            pstmt.setInt(4, character.getAttack());
+            pstmt.setString(5, character.getOffensiveEquipment() == null ? "none" : character.getOffensiveEquipment().toString());
+            pstmt.executeUpdate();
+
+        }   catch (SQLException e) {
+            System.err.println("Error save : " + e.getMessage());
+        }
+
+    }
+
+    //MODIFIE UN HERO EXISTANT
+
+    public void editHero(int id, Character character) {
+        String query = "UPDATE Heros SET Type = ?, Name = ?, LifePoints = ?, Strength = ?, OffensiveEquipment = ? WHERE id = ?";
+
+        try (Connection connection = connect()) {
+            PreparedStatement pstmt = connection.prepareStatement(query);
+
+            pstmt.setString(1, character.getType());
+            pstmt.setString(2, character.getName());
+            pstmt.setInt(3, character.getHp());
+            pstmt.setInt(4, character.getAttack());
+            pstmt.setString(5, character.getOffensiveEquipment() == null ? "none" : character.getOffensiveEquipment().toString()
+            );
+            pstmt.setInt(6, id); // ← le WHERE id = ?, toujours en dernier
+
+            pstmt.executeUpdate();
+            System.out.println("Hero updated !");
+
+        } catch (SQLException e) {
+            System.err.println("Error update : " + e.getMessage());
+        }
+    }
+
+    //MODIFIER HP HERO
+
+    public void changeHp(int id, Character character) {
+
     }
 
 }
