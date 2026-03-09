@@ -1,6 +1,7 @@
 package d_and_d.character.villains;
 
 import d_and_d.character.Character;
+
 import d_and_d.equipment.OffensiveEquipment;
 
 public class DarkWizard extends Character {
