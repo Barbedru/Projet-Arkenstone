@@ -1,24 +1,18 @@
 package d_and_d;
 
 import d_and_d.board.Board;
-import d_and_d.character.Dwarf;
 import d_and_d.character.Character;
-import d_and_d.character.Wizard;
-
+import d_and_d.character.heros.Dwarf;
+import d_and_d.character.heros.Wizard;
 import java.util.Scanner;
 
 
 public class Game {
 
-
     private Menu menu;
-
     private Dice dice;
-
     private Board board;
-
     private Character character;
-
     private Scanner scanner;
 
 
@@ -76,6 +70,8 @@ public class Game {
         board = new Board();
 
     }
+
+
 
 
 

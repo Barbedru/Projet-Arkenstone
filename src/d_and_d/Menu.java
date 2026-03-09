@@ -47,8 +47,8 @@ public class Menu {
     public String getCharacterChoice() {
         System.out.println("""
                 Make choice between : 
-                Dwarf \uD83C\uDF7A  
-                Wizard \uD83E\uDDD9\u200D♂\uFE0F
+                The Dwarf \uD83C\uDF7A  
+                The Wizard \uD83E\uDDD9\u200D♂\uFE0F
                 """);
         return scanner.nextLine();
     }
@@ -69,7 +69,7 @@ public class Menu {
         System.out.printf("%n>>> %s the %s is ready for adventure !%n", name, type);
         //Premier %s → name
        //Deuxième %s → type
-        System.out.println(name + " => a " + type + " with attack : " + attack + ", and hp : " + hp );
+        System.out.println(name + " => a " + type + " with attack " + attack + "\uD83D\uDDE1\uFE0F" + ", and hp " + hp + "❤\uFE0F " );
     }
 
 

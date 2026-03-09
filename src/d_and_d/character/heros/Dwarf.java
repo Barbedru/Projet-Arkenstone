@@ -1,7 +1,7 @@
-package d_and_d.character;
+package d_and_d.character.heros;
 
 
-import d_and_d.equipment.OffensiveEquipment;
+import d_and_d.character.Character;
 
 public class Dwarf extends Character {
 

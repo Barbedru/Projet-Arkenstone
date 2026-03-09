@@ -1,4 +1,6 @@
-package d_and_d.character;
+package d_and_d.character.villains;
+
+import d_and_d.character.Character;
 
 public class Gobelin extends Character {
 
