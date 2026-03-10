@@ -33,10 +33,10 @@ public class WeaponCell extends Cell {
         super.interact(character);
 
         if (weapons instanceof Sword) {
-            System.out.println(" There's something here ");
+            System.out.println("Cell " + position +  " There's something here ");
             System.out.println(character.getName() + " found Sword \uD83D\uDDE1\uFE0F ");
         } else if (weapons instanceof WarAxe) {
-            System.out.println(" There's are something here ");
+            System.out.println("Cell " + position +  " There's are something here ");
             System.out.println(character.getName() + " found WarAxe \uD83E\uDE93 ");
 
         }

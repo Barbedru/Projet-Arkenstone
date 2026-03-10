@@ -42,11 +42,11 @@ public class EnemyCell extends Cell {
         super.interact(character); // affiche les infos de base
 
         if (villains instanceof Gobelin) {
-            System.out.println("A Goblin appears \uD83D\uDC79  Prepare for battle !  ⚔\uFE0F ");
+            System.out.println("Cell " + position + "A Goblin appears \uD83D\uDC79  Prepare for battle !  ⚔\uFE0F ");
         } else if (villains instanceof DarkWizard) {
-            System.out.println("A Dark Wizard appears  \uD83E\uDDD9\uD83C\uDFFF  He's preparing a spell!  ✨ ");
+            System.out.println("Cell " + position + "A Dark Wizard appears  \uD83E\uDDD9\uD83C\uDFFF  He's preparing a spell!  ✨ ");
         } else if (villains instanceof Dragon) {
-            System.out.println("A Drake appears \uD83D\uDC32 He's rushing towards you !");
+            System.out.println("Cell " + position + "A Drake appears \uD83D\uDC32 He's rushing towards you !");
         } else if (villains instanceof Smaug) {
             System.out.println(" The ground trembles... an incandescent light suddenly appears before you!");
             System.out.println("\uD83D\uDD25\uD83D\uDD25\uD83D\uDD25\uD83D\uDD25\uD83D\uDD25 " +
