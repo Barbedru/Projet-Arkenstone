@@ -8,7 +8,6 @@ public class Menu {
 
 
     public Menu(Scanner scanner) {
-
         this.scanner = scanner;
     }
 
@@ -40,13 +39,24 @@ public class Menu {
     }
 
 
-    public String getCharacterChoice() {
+    public Boolean getCharacterChoice(Game game) {
         System.out.println("""
                 Make choice between : 
-                The Dwarf \uD83C\uDF7A  
-                The Wizard \uD83E\uDDD9\u200D♂\uFE0F
+                1 - The Dwarf \uD83C\uDF7A  
+                2 - The Wizard \uD83E\uDDD9\u200D♂\uFE0F
                 """);
-        return scanner.nextLine();
+        int input = scanner.nextInt();
+        scanner.nextLine();
+
+        switch (input) {
+            case 1:
+                return false;
+            case 2:
+                return true;
+                default:
+                    displayMenu(game);
+        }
+        return null;
     }
 
 
@@ -73,7 +83,13 @@ public class Menu {
         System.out.printf("%n>>> %s the %s is ready for adventure !%n", name, type);
         //Premier %s → name
        //Deuxième %s → type
-        System.out.println(name + " => a " + type + " with attack " + attack + "\uD83D\uDDE1\uFE0F" + ", and hp " + hp + "❤\uFE0F " );
+        System.out.println(name + " => a " + type + " with attack " + attack + "\uD83D\uDDE1\uFE0F" + " and hp " + hp + "❤\uFE0F " );
+        System.out.println("""
+                .
+                .
+                .
+                .
+                """);
     }
 
 
