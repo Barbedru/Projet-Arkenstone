@@ -13,4 +13,11 @@ public abstract class Cell {
     }
 
     public abstract void action(Character character);
+
+
+    public void interact(Character character) {
+
+
+    }
+
 }

@@ -31,10 +31,12 @@ public abstract class Character {
     }
 
     public String getType() {
+
         return type;
     }
 
     public int getAttack() {
+
         return attack;
     }
 

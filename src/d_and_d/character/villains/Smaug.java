@@ -6,7 +6,7 @@ import d_and_d.character.Character;
 public class Smaug extends Character {
 
     public Smaug(String name, int attack, int hp) {
-        super(name,"Smaug", 4, 15, null);
+        super("Smaug","Boss", 8, 25, null);
     }
 
     @Override
