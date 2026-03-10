@@ -49,7 +49,9 @@ public class EnemyCell extends Cell {
             System.out.println("A Drake appears \uD83D\uDC32 He's rushing towards you !");
         } else if (villains instanceof Smaug) {
             System.out.println(" The ground trembles... an incandescent light suddenly appears before you!");
-            System.out.println("\uD83D\uDD25\uD83D\uDD25\uD83D\uDD25\uD83D\uDD25\uD83D\uDD25 SMAUG THE TERRIBLE \uD83D\uDD25\uD83D\uDD25\uD83D\uDD25\uD83D\uDD25\uD83D\uDD25");
+            System.out.println("\uD83D\uDD25\uD83D\uDD25\uD83D\uDD25\uD83D\uDD25\uD83D\uDD25 " +
+                    "SMAUG THE TERRIBLE" +
+                    " \uD83D\uDD25\uD83D\uDD25\uD83D\uDD25\uD83D\uDD25\uD83D\uDD25");
             System.out.println(" My armor is worth ten shields, my fangs are swords, my claws are spears," +
                     " the strike of my tail is like lightning, my wings are like a hurricane, and my breath is deadly!");
         }

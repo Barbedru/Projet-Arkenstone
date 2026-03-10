@@ -12,9 +12,6 @@ public class Dwarf extends Character {
     }
 
 
-    @Override
-    public String toString() {
-        return "Dwarf{} " + super.toString();
-    }
+
 
 }

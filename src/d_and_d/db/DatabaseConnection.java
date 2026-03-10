@@ -103,8 +103,15 @@ public class DatabaseConnection {
 
     //MODIFIER HP HERO
 
-    public void changeHp(int id, Character character) {
-
-    }
+//    public void changeHp(int id, Character character) {
+//        String query = "UPDATE heros SET LifePoints = ? WHERE id = ?";
+//
+//        try (Connection connection = connect()) {
+//            PreparedStatement pstmt = connection.prepareStatement(query);
+//
+//            pstmt.setInt()
+//        }
+//
+//    }
 
 }

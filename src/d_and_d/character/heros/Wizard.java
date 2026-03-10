@@ -14,9 +14,4 @@ public class Wizard extends Character {
 
 
 
-    @Override
-    public String toString() {
-
-        return "Wizard{}" + super.toString();
-    }
 }
