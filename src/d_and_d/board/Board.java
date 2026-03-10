@@ -1,6 +1,7 @@
 package d_and_d.board;
 
 import d_and_d.character.Character;
+
 import java.util.ArrayList;
 
 
@@ -14,6 +15,7 @@ public class Board {
 
         //position initiale du Joueur
         playerPosition = -1;
+
 
 
         board.add(new SpellCell(1));
@@ -38,6 +40,7 @@ public class Board {
         board.add(new EnemyCell(18));
         board.add(new WeaponCell(19));
         board.add(new EnemyCell(20));
+
         board.add(new EnemyCell(21));
         board.add(new WeaponCell(22));
         board.add(new SpellCell(23));
@@ -48,6 +51,7 @@ public class Board {
         board.add(new PotionCell(28));
         board.add(new EmptyCell(29));
         board.add(new EnemyCell(30));
+
         board.add(new PotionCell(31));
         board.add(new EnemyCell(32));
         board.add(new PotionCell(33));
@@ -58,6 +62,7 @@ public class Board {
         board.add(new WeaponCell(38));
         board.add(new PotionCell(39));
         board.add(new EnemyCell(40));
+
         board.add(new PotionCell(41));
         board.add(new WeaponCell(42));
         board.add(new PotionCell(43));
@@ -68,6 +73,7 @@ public class Board {
         board.add(new SpellCell(48));
         board.add(new SpellCell(49));
         board.add(new EmptyCell(50));
+
         board.add(new EmptyCell(51));
         board.add(new EnemyCell(52));
         board.add(new WeaponCell(53));
@@ -78,10 +84,11 @@ public class Board {
         board.add(new EmptyCell(58));
         board.add(new EmptyCell(59));
         board.add(new EmptyCell(60));
+
         board.add(new EmptyCell(61));
         board.add(new EnemyCell(62));
         board.add(new EmptyCell(63));
-        board.add(new EmptyCell(64));
+        board.add(new EnemyCell(64));
 
     }
 
@@ -89,7 +96,7 @@ public class Board {
     //Méthode moveCharacter
     public void moveCharacter(int move, Character character) {
 
-        playerPosition += move;
+        playerPosition = playerPosition + move;
 
         if (playerPosition >= board.size()) {
             playerPosition = board.size() - 1;
@@ -97,7 +104,7 @@ public class Board {
 
         Cell currentCell = board.get(playerPosition);
 
-        currentCell.action(character);
+        currentCell.interact(character);
     }
 
 
@@ -105,6 +112,8 @@ public class Board {
         return playerPosition;
 
     }
+
+
 
     public void print() {
         for (int i = -1; i < board.size(); i++) {

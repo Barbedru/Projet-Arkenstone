@@ -12,12 +12,8 @@ public abstract class Cell {
         this.position = position;
     }
 
-    public abstract void action(Character character);
 
-
-    public void interact(Character character) {
-
-
+    protected void interact(Character character) {
     }
 
 }

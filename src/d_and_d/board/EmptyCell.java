@@ -8,8 +8,8 @@ public class EmptyCell extends Cell {
     }
 
     @Override
-    public void action(Character character) {
-        System.out.println("Cell " + position + " - There's nothing here...");
+    public void interact(Character character) {
+        System.out.println("There's nothing here  \uD83E\uDDB4\uD83E\uDDB4\uD83E\uDDB4  ....");
         System.out.println(character.getName() + " must move" );
 
     }
