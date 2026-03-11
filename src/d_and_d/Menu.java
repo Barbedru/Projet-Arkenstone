@@ -63,6 +63,7 @@ public class Menu {
     public String getName() {
         System.out.println("Name it");
         return scanner.nextLine();
+
     }
 
 
