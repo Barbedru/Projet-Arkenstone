@@ -32,7 +32,7 @@ public class Game {
         System.out.println(character.getName() + " => a " + character.getType() + " with attack " +
                             character.getAttack() + "🗡️" + " and hp " + character.getHp() + "❤️ ");
         board.print();
-        int roll = dice.roll(1);
+        int roll = dice.roll(6);
         board.moveCharacter(roll, character);
         this.scanner.nextLine();
     }
@@ -71,6 +71,26 @@ public class Game {
             character = new Dwarf(name, 5, 10);
         } else if (type.equals("Wizard")) {
             character = new Wizard(name, 8, 6);
+            System.out.println("                             /\\\n" +
+                    "                            /  \\\n" +
+                    "                           |    |\n" +
+                    "                         --:'''':--\n" +
+                    "                           :'_' :\n" +
+                    "                           _:\"\":\\___\n" +
+                    "            ' '      ____.' :::     '._\n" +
+                    "           . *=====<<=)           \\    :\n" +
+                    "            .  '      '-'-'\\_      /'._.'\n" +
+                    "                             \\====:_ \"\"\n" +
+                    "                            .'     \\\\\n" +
+                    "                           :       :\n" +
+                    "                          /   :    \\\n" +
+                    "                         :   .      '.\n" +
+                    "                         :  : :      :\n" +
+                    "                         :__:-:__.;--'\n" +
+                    "                         '-'   '-'\n" +
+                    "                 \n" +
+                    "                  \n" +
+                    "                  \n");
         }
 
         //Création plateau

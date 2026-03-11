@@ -42,16 +42,71 @@ public class EnemyCell extends Cell {
         super.interact(character); // affiche les infos de base
 
         if (villains instanceof Gobelin) {
-            System.out.println("Cell " + position + "A Goblin appears \uD83D\uDC79  Prepare for battle !  ⚔\uFE0F ");
+            System.out.println("          .    .\n" +
+                    "          |\\   |\\\n" +
+                    "       _..;|;__;|;\n" +
+                    "     ,'   ';` \\';`-.\n" +
+                    "     7;-..     :   )\n" +
+                    ".--._)|   `;==,|,=='\n" +
+                    " `\\`@; \\_ `<`G,\" G).\n" +
+                    "   `\\/-;,(  )  .>. )\n" +
+                    "       < ,-;'-.__.;'\n" +
+                    "        `\\_ `-,__,'\n" +
+                    "           `-..,;,>\n" +
+                    "              `;;;;\n" +
+                    "               `  `\n");
+            System.out.println("Cell " + " " + position + "A Goblin appears \uD83D\uDC79  Prepare for battle !  ⚔\uFE0F ");
         } else if (villains instanceof DarkWizard) {
-            System.out.println("Cell " + position + "A Dark Wizard appears  \uD83E\uDDD9\uD83C\uDFFF  He's preparing a spell!  ✨ ");
+            System.out.println("Cell " + " " + position + "A Dark Wizard appears  \uD83E\uDDD9\uD83C\uDFFF  He's preparing a spell!  ✨ ");
         } else if (villains instanceof Dragon) {
-            System.out.println("Cell " + position + "A Drake appears \uD83D\uDC32 He's rushing towards you !");
+            System.out.println("      . \n" +
+                    " .>   )\\;`a__\n" +
+                    "(  _ _)/ /-.\" ~~\n" +
+                    " `( )_ )/\n" +
+                    "  <_  <_       \n");
+            System.out.println("Cell " + " " + position + "A Drake appears \uD83D\uDC32 He's rushing towards you !");
         } else if (villains instanceof Smaug) {
-            System.out.println(" The ground trembles... an incandescent light suddenly appears before you!");
-            System.out.println("\uD83D\uDD25\uD83D\uDD25\uD83D\uDD25\uD83D\uDD25\uD83D\uDD25 " +
-                    "SMAUG THE TERRIBLE" +
-                    " \uD83D\uDD25\uD83D\uDD25\uD83D\uDD25\uD83D\uDD25\uD83D\uDD25");
+            System.out.println(" The ground is shaking... an incandescent light suddenly appears before you!");
+            System.out.println(" (       *                              \n" +
+                    " )\\ )  (  `     (             (         \n" +
+                    "(()/(  )\\))(    )\\        (   )\\ )      \n" +
+                    " /(_))((_)()\\((((_)(      )\\ (()/(      \n" +
+                    "(_))  (_()((_))\\ _ )\\  _ ((_) /(_))_    \n" +
+                    "/ __| |  \\/  |(_)_\\(_)| | | |(_)) __|   \n" +
+                    "\\__ \\ | |\\/| | / _ \\  | |_| |  | (_ |   \n" +
+                    "|___/ |_|  |_|/_/ \\_\\  \\___/    \\___|   \n" +
+                    "                                        ");
+            System.out.println("                          (`-.                                        \n" +
+                    "                                  \\  `                                       \n" +
+                    "     /)         ,   '--.           \\    `                                    \n" +
+                    "    //     , '          \\/          \\   `   `                                \n" +
+                    "   //    ,'              ./         /\\    \\>- `   ,----------.               \n" +
+                    "  ( \\  ,'    .-.-._        /      ,' /\\    \\   . `            `.             \n" +
+                    "   \\ \\'     /.--. .)       ./   ,'  /  \\     .      `           `.           \n" +
+                    "    \\     -{/    \\ .)        / /   / ,' \\       `     `-----.     \\          \n" +
+                    "    <\\      )     ).:)       ./   /,' ,' \\        `.  /\\)    `.    \\         \n" +
+                    "     >^,  //     /..:)       /   //--'    \\         `(         )    )        \n" +
+                    "      | ,'/     /. .:)      /   (/         \\          \\       /    /         \n" +
+                    "      ( |(_    (...::)     (                \\       .-.\\     /   ,'          \n" +
+                    "      (O| /     \\:.::)                      /\\    ,'   \\)   /  ,'            \n" +
+                    "       \\|/      /`.:::)                   ,/  \\  /         (  /              \n" +
+                    "               /  /`,.:)                ,'/    )/           \\ \\              \n" +
+                    "             ,' ,'.'  `:>-._._________,<;'    (/            (,'              \n" +
+                    "           ,'  /  |     `^-^--^--^-^-^-'                                     \n" +
+                    " .--------'   /   |                                                          \n" +
+                    "(       .----'    |                                                          \n" +
+                    " \\ <`.  \\         |                                                          \n" +
+                    "  \\ \\ `. \\        |                                                          \n" +
+                    "   \\ \\  `.`.      |                                                          \n" +
+                    "    \\ \\   `.`.    |                                                          \n" +
+                    "     \\ \\    `.`.  |                                                          \n" +
+                    "      \\ \\     `.`.|                                                          \n" +
+                    "       \\ \\      `.`.                                                         \n" +
+                    "        \\ \\     ,^-'                                                         \n" +
+                    "         \\ \\    |                                                            \n" +
+                    "          `.`.  |                                                            \n" +
+                    "             .`.|                                                            \n" +
+                    "              `._>\n");
             System.out.println(" My armor is worth ten shields, my fangs are swords, my claws are spears," +
                     " the strike of my tail is like lightning, my wings are like a hurricane, and my breath is deadly!");
         }

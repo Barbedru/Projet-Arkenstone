@@ -31,11 +31,45 @@ public class SpellCell extends Cell {
         super.interact(character);
 
         if (spells instanceof Lightning) {
-            System.out.println("Cell " + position +  "There's something here ");
+            System.out.println("Cell " + " " + position +  "There's something here ");
+            System.out.println("                 .eeeeeeeee\n" +
+                    "                .$$$$$$$$P\"\n" +
+                    "               .$$$$$$$$P\n" +
+                    "              z$$$$$$$$P\n" +
+                    "             z$$$$$$$$\"\n" +
+                    "            z$$$$$$$$\"\n" +
+                    "           d$$$$$$$$\"\n" +
+                    "          d$$$$$$$$\"\n" +
+                    "        .d$$$$$$$P\n" +
+                    "       .$$$$$$$$P\n" +
+                    "      .$$$$$$$$$.........\n" +
+                    "     .$$$$$$$$$$$$$$$$$$\"\n" +
+                    "    z$$$$$$$$$$$$$$$$$P\"\n" +
+                    "   -**********$$$$$$$P\n" +
+                    "             d$$$$$$\"\n" +
+                    "           .d$$$$$$\"\n" +
+                    "          .$$$$$$P\"\n" +
+                    "         z$$$$$$P\n" +
+                    "        d$$$$$$\"\n" +
+                    "      .d$$$$$$\"\n" +
+                    "     .$$$$$$$\"\n" +
+                    "    z$$$$$$$beeeeee\n" +
+                    "   d$$$$$$$$$$$$$*\n" +
+                    "  ^\"\"\"\"\"\"\"\"$$$$$\"\n" +
+                    "          d$$$*\n" +
+                    "         d$$$\"\n" +
+                    "        d$$*\n" +
+                    "       d$P\"\n" +
+                    "     .$$\"\n" +
+                    "    .$P\"\n" +
+                    "   .$\"\n" +
+                    "  .P\"\n" +
+                    " .\"            \n" +
+                    "/\"\n");
             System.out.println(character.getName() + " found Lightning ⚡ ");
         } else if (spells instanceof FireBall) {
-            System.out.println("Cell " + position + "There's are something here ");
-            System.out.println(character.getName() + " found FireBall \uD83D\uDD25 ");
+            System.out.println("Cell " + " " + position + "There's are something here ");
+            System.out.println(character.getName() + " found FireBall  ");
         }
 
     }

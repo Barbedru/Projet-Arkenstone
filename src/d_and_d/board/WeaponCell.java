@@ -33,11 +33,37 @@ public class WeaponCell extends Cell {
         super.interact(character);
 
         if (weapons instanceof Sword) {
-            System.out.println("Cell " + position +  " There's something here ");
-            System.out.println(character.getName() + " found Sword \uD83D\uDDE1\uFE0F ");
+            System.out.println("Cell " + " " + position +  " There's something here ");
+            System.out.println("   .\n" +
+                    "  / \\\n" +
+                    "  | |\n" +
+                    "  | |\n" +
+                    "  |.|\n" +
+                    "  |.|\n" +
+                    "  |:|\n" +
+                    "  |:|\n" +
+                    "`--8--'\n" +
+                    "   8\n" +
+                    "   O\n");
+            System.out.println(character.getName() + " found Sword ! ");
         } else if (weapons instanceof WarAxe) {
-            System.out.println("Cell " + position +  " There's are something here ");
-            System.out.println(character.getName() + " found WarAxe \uD83E\uDE93 ");
+            System.out.println("Cell " + " " + position +  " There's are something here ");
+            System.out.println("  ,:\\      /:.\n" +
+                    " //  \\_()_/  \\\\\n" +
+                    "||   |    |   ||\n" +
+                    "||   |    |   ||\n" +
+                    "||   |____|   ||\n" +
+                    " \\\\  / || \\  //\n" +
+                    "  `:/  ||  \\;'\n" +
+                    "       ||\n" +
+                    "       ||\n" +
+                    "       XX\n" +
+                    "       XX\n" +
+                    "       XX\n" +
+                    "       XX\n" +
+                    "       OO\n" +
+                    "       `'\n");
+            System.out.println(character.getName() + " found WarAxe ! ");
 
         }
 
