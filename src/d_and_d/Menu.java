@@ -14,12 +14,30 @@ public class Menu {
 
 
     public boolean displayMenu(Game game) {
-        System.out.println("""        
-                MAIN MENU
-                ---------
-                1 - New Game
-                2 - Edit Hero
-                3 - Quit Game
+        System.out.println("""
+                                                             _______________________
+                   _______________________-------------------                       `\\
+                 /:--__                                                              |
+                ||< > |                                   ___________________________/
+                | \\__/_________________-------------------                         |
+                |                                                                  |
+                 |                                MENU                              |
+                 |                                                                  |
+                 |                            1 - NEW GAME                          |
+                  |                           2 - EDIT HERO                          |
+                  |                           3 - QUIT GAME                          |
+                  |                                                                  |
+                  |                                                                  |
+                   |                                                                 |
+                   |                                                                  |
+                   |                                                                 |
+                  |                                              ____________________|_
+                  |  ___________________-------------------------                      `\\
+                  |/`--_                                                                 |
+                  ||[ ]||                                            ___________________/
+                   \\===/___________________--------------------------
+                
+               
                 """);
 
         int input = scanner.nextInt();
@@ -40,23 +58,97 @@ public class Menu {
 
 
     public Boolean getCharacterChoice(Game game) {
-        System.out.println("""
-                Make choice between : 
-                1 - The Dwarf \uD83C\uDF7A  
-                2 - The Wizard \uD83E\uDDD9\u200D♂\uFE0F
-                """);
+
+        String dwarfRaw =
+                "             _.-;-._\n" +
+                        "            ;_.JL___; \n" +
+                        "            F\"-/\\_-7L\n" +
+                        "            | a/ e | \\\n" +
+                        "           ,L,c;,.='/;,\n" +
+                        "        _,-;;S:;:S;;:' '--._\n" +
+                        "       ;. \\;;s:::s;;: .'   /\\\n" +
+                        "      /  \\  ;::::;;  /    /  \\\n" +
+                        "     / ,  k ;S';;'S.'    j __,l\n" +
+                        "  ,---/| /  /S   /S '.   |'   ;\n" +
+                        " ,Ljjj |/|.' s .' s   \\  L    |\n" +
+                        " LL,_ ]( \\    /    '.  '.||   ;\n" +
+                        " ||\\ > /  ;-.'_.-.___\\.-'(|==\"(\n" +
+                        " JJ,\" /   |_  [   ]     _]|   /\n" +
+                        "  LL\\/   ,' '--'-'-----'  \\  ( \n" +
+                        "  ||     ;      |          |  >\n" +
+                        "  JJ     |      |\\         |,/\n" +
+                        "   LL    |      ||       ' | \n" +
+                        "   ||    |      ||       . |\n" +
+                        "   JJ    /_     ||       ;_|\n" +
+                        "    LL   L \"==='|i======='_|\n" +
+                        "    ||    i----' '-------';\n" +
+                        "    JJ    ';-----.------,-'\n" +
+                        "     LL     L_.__J,'---;'\n" +
+                        "     ||      |   ,|    (\n" +
+                        "     JJ     .'=  (|  ,_|\n" +
+                        "      LL   /    .'L_    \\\n" +
+                        "      ||   '---'    '.___>";
+
+        String wizardRaw =
+                "                                  ....\n" +
+                        "                                .'' .'''\n" +
+                        ".                             .'   :\n" +
+                        "\\\\                          .:    :\n" +
+                        " \\\\                        _:    :       ..----.._\n" +
+                        "  \\\\                    .:::.....:::.. .'         ''.\n" +
+                        "   \\\\                 .'  #-. .-######'     #        '.\n" +
+                        "    \\\\                 '.##'/ ' ################       :\n" +
+                        "     \\\\                  #####################         :\n" +
+                        "      \\\\               ..##.-.#### .''''###'.._        :\n" +
+                        "       \\\\             :--:########:            '.    .' :\n" +
+                        "        \\\\..__...--.. :--:#######.'   '.         '.     :\n" +
+                        "        :     :  : : '':'-:'':'::        .         '.  .'\n" +
+                        "        '---'''..: :    ':    '..'''.      '.        :'\n" +
+                        "           \\\\  :: : :     '      ''''''.     '.      .:\n" +
+                        "            \\\\ ::  : :     '            '.      '      :\n" +
+                        "             \\\\::   : :           ....' ..:       '     '.\n" +
+                        "              \\\\::  : :    .....####\\\\ .~~.:.             :\n" +
+                        "               \\\\':.:.:.:'#########.===. ~ |.'-.   . '''.. :\n" +
+                        "                \\\\    .'  ########## \\ \\ _.' '. '-.       '''.\n" +
+                        "                :\\\\  :     ########   \\ \\      '.  '-.        :\n" +
+                        "               :  \\\\'    '   #### :    \\ \\      :.    '-.      :\n" +
+                        "              :  .'\\\\   :'  :     :     \\ \\       :      '-.    :\n" +
+                        "             : .'  .\\\\  '  :      :     :\\ \\       :        '.   :\n" +
+                        "             ::   :  \\\\'  :.      :     : \\ \\      :          '. :\n" +
+                        "             ::. :    \\\\  : :      :    ;  \\ \\     :           '.:\n" +
+                        "              : ':    '\\\\ :  :     :     :  \\:\\     :        ..'\n" +
+                        "                 :    ' \\\\ :        :     ;  \\|      :   .'''\n" +
+                        "                 '.   '  \\\\:                         :.''\n" +
+                        "                  .:..... \\\\:       :            ..''\n" +
+                        "                 '._____|'.\\\\......'''''''.:..'''\n" +
+                        "                            \\\\";
+
+        // Split sur les \n → on obtient un vrai String[] ligne par ligne
+        String[] dwarf  = dwarfRaw.split("\n");
+        String[] wizard = wizardRaw.split("\n");
+
+        int nbLignes = Math.max(dwarf.length, wizard.length);
+        int largeur  = 45; // ajuste selon la largeur max du nain
+
+        System.out.println();
+        System.out.printf("%-" + largeur + "s    %s%n", "   1 - The Dwarf 🍺", "   2 - The Wizard 🧙");
+        System.out.printf("%-" + largeur + "s    %s%n", "   ─────────────────", "   ──────────────────");
+
+        for (int i = 0; i < nbLignes; i++) {
+            String ligneGauche = (i < dwarf.length)  ? dwarf[i]  : "";
+            String ligneDroite = (i < wizard.length) ? wizard[i] : "";
+            System.out.printf("%-" + largeur + "s    %s%n", ligneGauche, ligneDroite);
+        }
+
+        System.out.println("\nYour choice (1 or 2) : ");
         int input = scanner.nextInt();
         scanner.nextLine();
 
         switch (input) {
-            case 1:
-                return false;
-            case 2:
-                return true;
-                default:
-                    displayMenu(game);
+            case 1: return false;
+            case 2: return true;
+            default: return getCharacterChoice(game);
         }
-        return null;
     }
 
 
