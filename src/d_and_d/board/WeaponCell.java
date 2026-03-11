@@ -1,4 +1,5 @@
 package d_and_d.board;
+import d_and_d.Color;
 import d_and_d.character.Character;
 import d_and_d.equipment.*;
 
@@ -48,7 +49,7 @@ public class WeaponCell extends Cell {
             System.out.println(character.getName() + " found Sword ! ");
         } else if (weapons instanceof WarAxe) {
             System.out.println("Cell " + " " + position +  " There's are something here ");
-            System.out.println("  ,:\\      /:.\n" +
+            System.out.println( Color.SILVER_BRIGHT +"  ,:\\      /:.\n" +
                     " //  \\_()_/  \\\\\n" +
                     "||   |    |   ||\n" +
                     "||   |    |   ||\n" +
@@ -62,7 +63,7 @@ public class WeaponCell extends Cell {
                     "       XX\n" +
                     "       XX\n" +
                     "       OO\n" +
-                    "       `'\n");
+                    "       `'\n"+ Color.RESET);
             System.out.println(character.getName() + " found WarAxe ! ");
 
         }

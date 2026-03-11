@@ -1,5 +1,6 @@
 package d_and_d.board;
 
+import d_and_d.Color;
 import d_and_d.character.Character;
 import d_and_d.character.villains.DarkWizard;
 import d_and_d.character.villains.Dragon;
@@ -42,7 +43,7 @@ public class EnemyCell extends Cell {
         super.interact(character); // affiche les infos de base
 
         if (villains instanceof Gobelin) {
-            System.out.println("          .    .\n" +
+            System.out.println(Color.RED + "          .    .\n" +
                     "          |\\   |\\\n" +
                     "       _..;|;__;|;\n" +
                     "     ,'   ';` \\';`-.\n" +
@@ -54,29 +55,59 @@ public class EnemyCell extends Cell {
                     "        `\\_ `-,__,'\n" +
                     "           `-..,;,>\n" +
                     "              `;;;;\n" +
-                    "               `  `\n");
-            System.out.println("Cell " + " " + position + "A Goblin appears \uD83D\uDC79  Prepare for battle !  ⚔\uFE0F ");
+                    "               `  `\n" + Color.RESET);
+            System.out.println("Cell " + " " + position + "A Goblin appears !  Prepare for battle !  ⚔\uFE0F ");
         } else if (villains instanceof DarkWizard) {
-            System.out.println("Cell " + " " + position + "A Dark Wizard appears  \uD83E\uDDD9\uD83C\uDFFF  He's preparing a spell!  ✨ ");
+            System.out.println(Color.PURPLE +
+                    "  .||,       /_ _\\\\     \n" +
+                    " \\.`',/      |'L'| |    \n" +
+                    " = ,. =      | -,| L    \n" +
+                    " / || \\    ,-'\\\"/,'`.   \n" +
+                    "   ||     ,'   `,,. `.  \n" +
+                    "   ,|____,' , ,;' \\| |  \n" +
+                    "  (3|\\    _/|/'   _| |  \n" +
+                    "   ||/,-''  | >-'' _,\\\\ \n" +
+                    "   ||'      ==\\ ,-'  ,' \n" +
+                    "   ||       |  V \\ ,|   \n" +
+                    "   ||       |    |` |   \n" +
+                    "   ||       |    |   \\  \n" +
+                    "   ||       |    \\    \\ \n" +
+                    "   ||       |     |    \\\n" +
+                    "   ||       |      \\_,-'\n" +
+                    "   ||       |___,,--\")_\\\n" +
+                    "   ||         |_|   ccc/\n" +
+                    "   ||        ccc/       \n" +
+                    "   ||                hjm\n" + Color.RESET);
+            System.out.println("Cell " + " " + position + "A Dark Wizard appears ! He's preparing a spell!  ✨ ");
         } else if (villains instanceof Dragon) {
-            System.out.println("      . \n" +
+            System.out.println(Color.GREEN +"      . \n" +
                     " .>   )\\;`a__\n" +
                     "(  _ _)/ /-.\" ~~\n" +
                     " `( )_ )/\n" +
-                    "  <_  <_       \n");
-            System.out.println("Cell " + " " + position + "A Drake appears \uD83D\uDC32 He's rushing towards you !");
+                    "  <_  <_       \n" + Color.RESET);
+            System.out.println("Cell " + " " + position + "A Drake appears ! He's rushing towards you !");
         } else if (villains instanceof Smaug) {
-            System.out.println(" The ground is shaking... an incandescent light suddenly appears before you!");
-            System.out.println(" (       *                              \n" +
-                    " )\\ )  (  `     (             (         \n" +
-                    "(()/(  )\\))(    )\\        (   )\\ )      \n" +
-                    " /(_))((_)()\\((((_)(      )\\ (()/(      \n" +
-                    "(_))  (_()((_))\\ _ )\\  _ ((_) /(_))_    \n" +
-                    "/ __| |  \\/  |(_)_\\(_)| | | |(_)) __|   \n" +
-                    "\\__ \\ | |\\/| | / _ \\  | |_| |  | (_ |   \n" +
-                    "|___/ |_|  |_|/_/ \\_\\  \\___/    \\___|   \n" +
-                    "                                        ");
-            System.out.println("                          (`-.                                        \n" +
+            System.out.println(" The ground is shaking... ");
+            System.out.println(" ..........................");
+            System.out.println(" ..........................");
+            System.out.println(" ..........................");
+            System.out.println(" An incandescent light suddenly appears before you!!!!!!");
+            System.out.println(
+                    Color.YELLOW + " (       *                              \n" +
+                            Color.RED +    " )\\ )  (  `     (             (         \n" +
+                            Color.YELLOW + "(()/(  )\\))(    )\\        (   )\\ )      \n" +
+                            Color.RED +    " /(_))((_)()\\((((_)(      )\\ (()/(      \n" +
+                            Color.YELLOW + "(_))  (_()((_))\\ _ )\\  _ ((_) /(_))_    \n" +
+
+                            Color.RED +
+                            "/ __| |  \\/  |(_)_\\(_)| | | |(_)) __|   \n" +
+                            "\\__ \\ | |\\/| | / _ \\  | |_| |  | (_ |   \n" +
+                            "|___/ |_|  |_|/_/ \\_\\  \\___/    \\___|   \n" +
+
+                            Color.RESET +
+                            "                                        "
+            );
+            System.out.println(Color.YELLOW + "                          (`-.                                        \n" +
                     "                                  \\  `                                       \n" +
                     "     /)         ,   '--.           \\    `                                    \n" +
                     "    //     , '          \\/          \\   `   `                                \n" +
@@ -106,9 +137,9 @@ public class EnemyCell extends Cell {
                     "         \\ \\    |                                                            \n" +
                     "          `.`.  |                                                            \n" +
                     "             .`.|                                                            \n" +
-                    "              `._>\n");
-            System.out.println(" My armor is worth ten shields, my fangs are swords, my claws are spears," +
-                    " the strike of my tail is like lightning, my wings are like a hurricane, and my breath is deadly!");
+                    "              `._>\n" + Color.RESET);
+            System.out.println( Color.YELLOW +" My armor is worth ten shields, my fangs are swords, my claws are spears," +
+                    " the strike of my tail is like lightning, my wings are like a hurricane, and my breath is deadly!" + Color.RESET);
         }
 
     }
