@@ -20,7 +20,6 @@ public class Game {
 
 
 
-
     public Game(Menu menu, Dice dice, Scanner scanner) {
         this.menu = menu;
         this.dice = dice;
@@ -30,9 +29,9 @@ public class Game {
 
     public void loop() {
         System.out.println(character.getName() + " => a " + character.getType() + " with attack " +
-                            character.getAttack() + "🗡️" + " and hp " + character.getHp() + "❤️ ");
+                character.getAttack() + "🗡️" + " and hp " + character.getHp() + "❤️ ");
         board.print();
-        int roll = dice.roll(6);
+        int roll = dice.roll(1);
         board.moveCharacter(roll, character);
         this.scanner.nextLine();
     }
@@ -40,25 +39,33 @@ public class Game {
 
 
     public void startGame() {
-        while (!menu.displayMenu(this)) {
+        menu.displayMenu(this);
+    }
 
-            Boolean isWizard = menu.getCharacterChoice(this);
-            String type = isWizard ? "Wizard" : "Dwarf";
+    public void quit() {
+        System.out.println("Goodbye !");
+        scanner.close();
+        System.exit(0);
+    }
 
-            String name = menu.getName();
+    public void startNewGame() {
 
-            initGame(type, name);
-            db.createHero(character);
-            menu.displayCharacter(type, character.getName(), character.getAttack(), character.getHp());
+        boolean isWizard = menu.getCharacterChoice(this);
+        String type = isWizard ? "Wizard" : "Dwarf";
+
+        String name = menu.getName();
+
+        initGame(type, name);
+        db.createHero(character);
+        menu.displayCharacter(type, character.getName(), character.getAttack(), character.getHp());
 
 
-            while (!checkWin()) {
-                loop();
-            }
-
-            System.out.println("You defeated Smaug and found the Arkenstone !");
-            System.out.println("Your are the King under the mountain !");
+        while (!checkWin()) {
+            loop();
         }
+
+        System.out.println("You defeated Smaug and found the Arkenstone !");
+        System.out.println("Your are the King under the mountain !");
     }
 
 
@@ -68,7 +75,11 @@ public class Game {
 
 
         if (type.equals("Dwarf")) {
+
+
             character = new Dwarf(name, 5, 10);
+
+
             System.out.println("             _.-;-._\n" +
                     "            ;_.JL___; \n" +
                     "            F\"-/\\_-7L\n" +
@@ -98,7 +109,11 @@ public class Game {
                     "      LL   /    .'L_    \\\n" +
                     "     ||   '---'    '.___>\n");
         } else if (type.equals("Wizard")) {
+
+
             character = new Wizard(name, 8, 6);
+
+
             System.out.println("                                  ....\n" +
                     "                                .'' .'''\n" +
                     ".                             .'   :\n" +
@@ -136,6 +151,8 @@ public class Game {
         //Création plateau
         board = new Board();
 
+
+
     }
 
 
@@ -143,7 +160,7 @@ public class Game {
     public void editCharacter() {
         db.getHeroes();
         int id = menu.getHeroId();
-        Boolean isWizard = menu.getCharacterChoice(this);
+        boolean isWizard = menu.getCharacterChoice(this);
         String type = isWizard ? "Wizard" : "Dwarf";
         String name = menu.getName();
         initGame(type, name);

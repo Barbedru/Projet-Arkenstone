@@ -13,7 +13,7 @@ public class Menu {
 
 
 
-    public boolean displayMenu(Game game) {
+    public void displayMenu(Game game) {
         System.out.println("""
                                                              _______________________
                    _______________________-------------------                       `\\
@@ -41,23 +41,25 @@ public class Menu {
                 """);
 
         int input = scanner.nextInt();
-       scanner.nextLine();
+        scanner.nextLine();
 
         switch (input) {
             case 1:
-                return false;
+                game.startNewGame();
+                break;
             case 2:
-                game.editCharacter();  // ← on appelle la méthode de Game
-                return displayMenu(game);
+                game.editCharacter();
+                break;
             case 3:
-                return true;
+                game.quit();
+                break;
             default:
-                return displayMenu(game);
+                displayMenu(game);
         }
     }
 
 
-    public Boolean getCharacterChoice(Game game) {
+    public boolean getCharacterChoice(Game game) {
 
         String dwarfRaw =
                 "             _.-;-._\n" +
@@ -88,6 +90,7 @@ public class Menu {
                         "     JJ     .'=  (|  ,_|\n" +
                         "      LL   /    .'L_    \\\n" +
                         "      ||   '---'    '.___>";
+
 
         String wizardRaw =
                 "                                  ....\n" +
@@ -175,7 +178,7 @@ public class Menu {
 //        %s → Placeholder pour une chaîne de caractères.
         System.out.printf("%n>>> %s the %s is ready for adventure !%n", name, type);
         //Premier %s → name
-       //Deuxième %s → type
+        //Deuxième %s → type
         System.out.println(name + " => a " + type + " with attack " + attack + "\uD83D\uDDE1\uFE0F" + " and hp " + hp + "❤\uFE0F " );
         System.out.println("""
                 .
@@ -186,6 +189,4 @@ public class Menu {
     }
 
 
-    }
-
-
+}
