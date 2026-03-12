@@ -115,7 +115,7 @@ public class Board {
     public void moveCharacter(int move, Character character) {
         playerPosition = playerPosition + move;
 
-        // Garde-fou : on ne peut pas sortir du plateautry {
+        // On ne peut pas sortir du plateau
         try {
             board.get(playerPosition);
         } catch (IndexOutOfBoundsException e) {
