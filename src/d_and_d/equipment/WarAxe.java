@@ -1,9 +1,10 @@
 package d_and_d.equipment;
 
+/** Arme puissante. Bonus d'attaque élevé, disponible en milieu/fin de plateau. */
 public class WarAxe extends OffensiveEquipment {
 
     public WarAxe(String name, int lvlAttack) {
-        super("WarAxe", "Weapon", lvlAttack);
+        super(name, "Weapon", lvlAttack);
     }
 
     @Override

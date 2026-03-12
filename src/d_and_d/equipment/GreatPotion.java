@@ -1,8 +1,10 @@
 package d_and_d.equipment;
 
+/** Grande potion de soin. Restaure un nombre élevé de HP, disponible sur les cases avancées. */
 public class GreatPotion extends DefensiveEquipment {
-    public GreatPotion(String name,int lvlProtection) {
-        super("Great Potion", "Potion", lvlProtection);
+
+    public GreatPotion(String name, int lvlProtection) {
+        super(name, "Potion", lvlProtection);
     }
 
     @Override

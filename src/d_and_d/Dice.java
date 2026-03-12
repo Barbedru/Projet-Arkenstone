@@ -7,22 +7,16 @@ import java.util.Random;
  */
 public class Dice {
 
-    /**
-     * Générateur de nombres aléatoires utilisé pour les lancers de dé.
-     */
     private Random rand = new Random();
 
     /**
-     * Simule un lancer de dé et retourne un résultat aléatoire.
-     * <p>
-     * Le résultat est compris entre 1 et {@code maxValue} inclus.
-     * Par exemple, {@code roll(6)} simule un dé à 6 faces.
-     * </p>
+     * Simule un lancer de dé et retourne un résultat aléatoire entre 1 et {@code maxValue} inclus.
+     * Exemple : {@code roll(6)} simule un dé à 6 faces.
      *
-     * @param maxValue la valeur maximale (et le nombre de faces) du dé
-     * @return un entier aléatoire entre 1 et {@code maxValue} inclus
+     * @param maxValue le nombre de faces du dé
+     * @return un entier aléatoire entre 1 et {@code maxValue}
      */
     public int roll(int maxValue) {
-        return rand.nextInt(maxValue) + 1;
+        return rand.nextInt(maxValue) + 1; // +1 car nextInt(n) retourne [0, n-1]
     }
 }

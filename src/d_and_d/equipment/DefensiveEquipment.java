@@ -1,36 +1,21 @@
 package d_and_d.equipment;
 
 /**
- * Classe abstraite représentant un équipement défensif dans le jeu.
+ * Classe abstraite représentant un équipement défensif (potion, bouclier...).
  * <p>
- * Sert de base pour tout équipement destiné à protéger le personnage
- * (armure, bouclier, etc.). Les sous-classes doivent étendre cette classe
- * pour définir des types d'équipement spécifiques.
+ * Toutes les potions ({@link Potion}, {@link GreatPotion}) héritent de cette classe.
  * </p>
  */
 public abstract class DefensiveEquipment {
 
-    /**
-     * Nom de l'équipement (ex : "Bouclier de fer").
-     */
     private String name;
+    private String type;          // ex : "Potion", "Shield"
+    private int lvlProtection;    // bonus de protection apporté
 
     /**
-     * Type de l'équipement (ex : "Shield", "Potion").
-     */
-    private String type;
-
-    /**
-     * Niveau de protection offert par l'équipement.
-     */
-    private int lvlProtection;
-
-    /**
-     * Construit un équipement défensif avec ses caractéristiques de base.
-     *
      * @param name          le nom de l'équipement
      * @param type          le type de l'équipement
-     * @param lvlProtection le niveau de protection offert
+     * @param lvlProtection le niveau de protection
      */
     public DefensiveEquipment(String name, String type, int lvlProtection) {
         this.name = name;
@@ -38,15 +23,7 @@ public abstract class DefensiveEquipment {
         this.lvlProtection = lvlProtection;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public int getLvlProtection() {
-        return lvlProtection;
-    }
+    public String getName()       { return name; }
+    public String getType()       { return type; }
+    public int getLvlProtection() { return lvlProtection; }
 }

@@ -1,11 +1,10 @@
 package d_and_d.equipment;
 
-
+/** Arme de base. Attaque modérée, trouvée dès le début du plateau. */
 public class Sword extends OffensiveEquipment {
 
-
-    public Sword(String name , int lvlAttack) {
-        super("Sword", "Weapon", lvlAttack);
+    public Sword(String name, int lvlAttack) {
+        super(name, "Weapon", lvlAttack);
     }
 
     @Override
