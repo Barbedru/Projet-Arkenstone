@@ -56,10 +56,11 @@ public class Game {
         // Affichage de l'état courant du héros
         System.out.println(character.getName() + " => a " + character.getType() + " with attack " +
                 character.getAttack() + "🗡️" + " and hp " + character.getHp() + "❤️ ");
+        System.out.println("Dice value: " + dice.roll(6));
 
         board.print();
 
-        // roll(1) → le dé avance toujours d'une case (peut être augmenté plus tard)
+        // roll(6) → le dé donne une valeur random entre 1 et 6
         int roll = dice.roll(6);
         board.moveCharacter(roll, character);
 
