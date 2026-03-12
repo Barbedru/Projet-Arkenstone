@@ -30,10 +30,10 @@ public class PotionCell extends Cell {
         super.interact(character);
 
         if (potions instanceof Potion) {
-            System.out.println("Cell " + " " + position +  " There's something here ");
+            System.out.println("Cell " + "" + position + " " +  " There's something here ");
             System.out.println("A Potion \uD83E\uDDEA  I feel better ");
         } else if (potions instanceof GreatPotion) {
-            System.out.println("Cell " + " " + position +  " There's are something here ");
+            System.out.println("Cell " + "" + position + " " +  " There's are something here ");
             System.out.println("A Great Potion ⚗\uFE0F  I feel much better ");
         }
     }

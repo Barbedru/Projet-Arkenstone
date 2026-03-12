@@ -5,7 +5,7 @@ public class Sword extends OffensiveEquipment {
 
 
     public Sword(String name , int lvlAttack) {
-        super("Sword", "Weapon", 3);
+        super("Sword", "Weapon", lvlAttack);
     }
 
     @Override

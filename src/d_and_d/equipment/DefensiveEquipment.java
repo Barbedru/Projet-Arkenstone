@@ -37,4 +37,16 @@ public abstract class DefensiveEquipment {
         this.type = type;
         this.lvlProtection = lvlProtection;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public int getLvlProtection() {
+        return lvlProtection;
+    }
 }

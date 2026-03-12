@@ -8,7 +8,7 @@ public class DarkWizard extends Character {
 
 
     public DarkWizard(String name, String type, int attack, int hp, OffensiveEquipment offensiveEquipment) {
-        super(name, "DarkWizard", 2, 9, null);
+        super(name, "DarkWizard", attack, hp, null);
     }
 
 

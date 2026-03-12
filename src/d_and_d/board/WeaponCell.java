@@ -8,7 +8,7 @@ import d_and_d.equipment.*;
 public class WeaponCell extends Cell {
 
     private OffensiveEquipment weapons;
-    private OffensiveEquipment spells;
+
 
     public WeaponCell (int position){
         super(position);
@@ -34,7 +34,7 @@ public class WeaponCell extends Cell {
         super.interact(character);
 
         if (weapons instanceof Sword) {
-            System.out.println("Cell " + " " + position +  " There's something here ");
+            System.out.println("Cell " + "" + position + " " +  " There's something here ");
             System.out.println("   .\n" +
                     "  / \\\n" +
                     "  | |\n" +
@@ -48,7 +48,7 @@ public class WeaponCell extends Cell {
                     "   O\n");
             System.out.println(character.getName() + " found Sword ! ");
         } else if (weapons instanceof WarAxe) {
-            System.out.println("Cell " + " " + position +  " There's are something here ");
+            System.out.println("Cell " + "" + position + " " +  " There's are something here ");
             System.out.println( Color.SILVER_BRIGHT +"  ,:\\      /:.\n" +
                     " //  \\_()_/  \\\\\n" +
                     "||   |    |   ||\n" +

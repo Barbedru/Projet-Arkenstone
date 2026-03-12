@@ -7,7 +7,7 @@ public class Gobelin extends Character {
 
     public Gobelin (String name, int attack, int hp, OffensiveEquipment offensiveEquipment) {
 
-        super("Gobelin", "Gobelin", 1, 6, null);
+        super("Gobelin", "Gobelin", attack, hp, null);
     }
 
     @Override

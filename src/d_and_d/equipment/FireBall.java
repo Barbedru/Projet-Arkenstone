@@ -6,7 +6,7 @@ public class FireBall extends OffensiveEquipment {
 
 
     public FireBall(String name, int lvlAttack) {
-        super("FireBall", "Spell", 7);
+        super("FireBall", "Spell", lvlAttack);
     }
 
 

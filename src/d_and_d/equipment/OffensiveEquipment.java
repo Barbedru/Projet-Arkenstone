@@ -15,4 +15,16 @@ public abstract class OffensiveEquipment {
         this.lvlAttack = lvlAttack;
 
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public int getLvlAttack() {
+        return lvlAttack;
+    }
 }

@@ -1,5 +1,4 @@
 package d_and_d.board;
-import d_and_d.character.Character;
 
 import d_and_d.character.Character;
 import d_and_d.equipment.FireBall;
@@ -31,11 +30,11 @@ public class SpellCell extends Cell {
         super.interact(character);
 
         if (spells instanceof Lightning) {
-            System.out.println("Cell " + " " + position +  "There's something here ");
+            System.out.println("Cell " + "" + position + " " +  "There's something here ");
 
             System.out.println(character.getName() + " found Lightning ⚡ ");
         } else if (spells instanceof FireBall) {
-            System.out.println("Cell " + " " + position + "There's are something here ");
+            System.out.println("Cell " + "" + position + " " + "There's are something here ");
             System.out.println(character.getName() + " found FireBall  ");
         }
 

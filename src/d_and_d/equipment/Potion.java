@@ -5,7 +5,7 @@ public class Potion extends DefensiveEquipment {
 
 
     public Potion(String name, int lvlProtection) {
-        super("Potion", "Potion", 2);
+        super("Potion", "Potion", lvlProtection);
     }
 
     @Override

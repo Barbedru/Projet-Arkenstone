@@ -8,7 +8,7 @@ public class Dwarf extends Character {
 
     public Dwarf(String name, int attack, int hp) {
 
-        super(name, "Dwarf", 5 , 10, null);
+        super(name, "Dwarf", attack, hp , null);
     }
 
 

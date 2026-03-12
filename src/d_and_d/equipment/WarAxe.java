@@ -3,7 +3,7 @@ package d_and_d.equipment;
 public class WarAxe extends OffensiveEquipment {
 
     public WarAxe(String name, int lvlAttack) {
-        super("WarAxe", "Weapon", 5);
+        super("WarAxe", "Weapon", lvlAttack);
     }
 
     @Override
